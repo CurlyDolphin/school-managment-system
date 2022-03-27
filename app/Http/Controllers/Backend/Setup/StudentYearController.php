@@ -53,4 +53,16 @@ class StudentYearController extends Controller
 
         return redirect()->route('student.year.view')->with($notification);
     }
+
+    public function StudentYearDelete($id) {
+        $user = StudentYear::find($id);
+        $user->delete();
+
+        $notification = array(
+            'message' => 'Student Year Deleted Successfully',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('student.year.view')->with($notification);
+    }
 }
